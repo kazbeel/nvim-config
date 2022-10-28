@@ -1,0 +1,13 @@
+{
+  "name": "my-javascript-snippets",
+  "version": "1.0.0",
+  "description": "Javascript code snippets",
+  "contributes": {
+    "snippets": [
+      {
+        "language": "javascript",
+        "path": "./javascript.json"
+      }
+    ]
+  }
+}
