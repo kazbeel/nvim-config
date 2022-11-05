@@ -132,8 +132,6 @@ return packer.startup(function(use)
 
   use { "szw/vim-maximizer" }
 
-  use { "rmagatti/auto-session" }
-
   use { "b0o/schemastore.nvim" }
 
   use {"ellisonleao/glow.nvim"}
