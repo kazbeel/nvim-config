@@ -63,7 +63,7 @@ return packer.startup(function(use)
   }
 
   -- THEMES
-  use "rebelot/kanagawa.nvim"
+  use { "rebelot/kanagawa.nvim" }
   use { "folke/tokyonight.nvim" }
   use { "dracula/vim", as = "dracula" }
 
@@ -72,14 +72,14 @@ return packer.startup(function(use)
   use { "akinsho/git-conflict.nvim", tag = "*" }
   use { "lewis6991/gitsigns.nvim" }
 
-  use "windwp/nvim-autopairs"
+  use { "windwp/nvim-autopairs" }
   use { "windwp/nvim-ts-autotag" }
 
-  use "kylechui/nvim-surround"
+  use { "kylechui/nvim-surround" }
 
   use { "phaazon/hop.nvim", branch = "v2" }
 
-  use "numToStr/Comment.nvim"
+  use { "numToStr/Comment.nvim" }
   use { 'JoosepAlviste/nvim-ts-context-commentstring' }
 
   use {
@@ -96,7 +96,7 @@ return packer.startup(function(use)
 
   use { "ahmedkhalf/project.nvim" }
 
-  use "vim-scripts/ReplaceWithRegister" -- Vim plugin
+  use { "vim-scripts/ReplaceWithRegister" } -- Vim plugin
 
   -- TREESITTER
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
