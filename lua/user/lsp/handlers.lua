@@ -18,11 +18,11 @@ M.setup = function()
   end
 
   local config = {
-    virtual_text = true,
+    virtual_text = false,
     signs = {
       active = signs,
     },
-    update_in_insert = true,
+    update_in_insert = false,
     underline = true,
     severity_sort = true,
     float = {
@@ -118,22 +118,22 @@ M.on_attach = function(client, bufnr)
 
   -- Show line diagnostics automatically when cursor on the time
   -- This does not make much sense if config.virtual_text = true since the message is always displayed
-  -- vim.api.nvim_create_autocmd("CursorHold", {
-  --   buffer = bufnr,
-  --   callback = function ()
-  --     local opts = {
-  --       focusable = false,
-  --       close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-  --       border = "rounded",
-  --       source = "always",
-  --       prefix = "",
-  --       scope = "cursor",
-  --     }
-  --
-  --
-  --     vim.diagnostic.open_float(nil, opts)
-  --   end
-  -- })
+  vim.api.nvim_create_autocmd("CursorHold", {
+    buffer = bufnr,
+    callback = function ()
+      local opts = {
+        focusable = false,
+        close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+        border = "rounded",
+        source = "always",
+        prefix = "",
+        scope = "cursor",
+      }
+
+      -- vim.diagnostic.open_float(nil, opts)
+      vim.diagnostic.open_float()
+    end
+  })
 end
 
 return M
