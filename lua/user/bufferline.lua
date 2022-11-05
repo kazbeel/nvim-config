@@ -19,7 +19,7 @@ bufferline.setup({
     show_buffer_default_icon = false,
     show_close_icon = false,
     diagnostics = "nvim_lsp",
-    separator_style = "slant",
+    separator_style = "thick",
   },
 })
 
