@@ -2,6 +2,8 @@ local colorscheme = "kanagawa"
 -- local colorscheme = "tokyonight"
 -- local colorscheme = "dracula"
 
+require("user." .. colorscheme)
+
 if colorscheme == "tokyonight" then
   vim.g.tokyonight_style = "night"
 end
