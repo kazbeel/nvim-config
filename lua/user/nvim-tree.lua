@@ -26,11 +26,7 @@ nvim_tree.setup({
   },
   view = {
     hide_root_folder = true,
-    mappings = {
-      list = {
-        { key = "v", cb = tree_cb("vsplit") },
-      }
-    }
+    width = 40,
   },
   renderer = {
     full_name = true,
