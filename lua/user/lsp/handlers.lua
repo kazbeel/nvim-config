@@ -6,21 +6,21 @@ if not status_cmp_ok then
 end
 
 M.setup = function()
-  local signs = {
+  local diagnosticSigns = {
     { name = "DiagnosticSignError", text = "" },
     { name = "DiagnosticSignWarn", text = "" },
     { name = "DiagnosticSignHint", text = "" },
     { name = "DiagnosticSignInfo", text = "" },
   }
 
-  for _, sign in ipairs(signs) do
+  for _, sign in ipairs(diagnosticSigns) do
     vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
   end
 
-  local config = {
+  local diagnosticConfig = {
     virtual_text = false,
     signs = {
-      active = signs,
+      active = diagnosticSigns,
     },
     update_in_insert = false,
     underline = true,
@@ -35,7 +35,7 @@ M.setup = function()
     },
   }
 
-  vim.diagnostic.config(config)
+  vim.diagnostic.config(diagnosticConfig)
 
   local float = {
     focusable = true,
