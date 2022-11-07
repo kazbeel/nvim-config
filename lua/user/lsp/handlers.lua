@@ -66,8 +66,8 @@ local function lsp_keymaps(bufnr)
   vim.keymap.set("n", "gl", ":lua vim.diagnostic.open_float()<CR>", opts)
   vim.keymap.set("n", "gfc", ":lua vim.lsp.buf.formatting({ async = true })<CR>", opts)
   vim.keymap.set("n", "gca", ":lua vim.lsp.buf.code_action()<CR>", opts)
-  vim.keymap.set("n", "[d", ":lua vim.diagnostic.goto_prev<CR>", opts)
-  vim.keymap.set("n", "]d", ":lua vim.diagnostic.goto_next<CR>", opts)
+  vim.keymap.set("n", "[d", ":lua vim.diagnostic.goto_prev({ wrap = true })<CR>", opts)
+  vim.keymap.set("n", "]d", ":lua vim.diagnostic.goto_next({ wrap = true })<CR>", opts)
   vim.keymap.set("n", "<F2>", ":lua vim.lsp.buf.rename()<CR>", opts)
 end
 
