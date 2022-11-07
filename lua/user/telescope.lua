@@ -43,4 +43,5 @@ telescope.setup({
 telescope.load_extension("fzf")
 
 vim.keymap.set("n", "<C-p>", ":Telescope find_files<CR>", { silent = true })
-vim.keymap.set("n", "<leader>f", ":Telescope live_grep<CR>", { silent = true })
+vim.keymap.set("n", "<leader>ff", ":Telescope live_grep<CR>", { silent = true })
+vim.keymap.set("n", "<leader>fb", ":Telescope buffers<CR>", { silent = true })
