@@ -13,8 +13,8 @@ end
 local diagnostics = {
   "diagnostics",
   sources = { "nvim_diagnostic" },
-  sections = { "error", "warn" },
-  symbols = { error = " ", warn = " " },
+  sections = { "error", "warn", "info", "hint" },
+  symbols = { error = " ", warn = " ", info = ' ', hint = ' ' },
 }
 
 local filetype = {
