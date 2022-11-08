@@ -94,9 +94,7 @@ return packer.startup(function(use)
   }
   use { "tiagovla/scope.nvim" }
 
-  use { "ahmedkhalf/project.nvim" }
-
-  use { "vim-scripts/ReplaceWithRegister" } -- Vim plugin
+  use "vim-scripts/ReplaceWithRegister" -- Vim plugin
 
   -- TREESITTER
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
