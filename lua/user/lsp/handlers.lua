@@ -124,14 +124,14 @@ M.on_attach = function(client, bufnr)
       local opts = {
         focusable = false,
         close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+        style = "minimal",
         border = "rounded",
         source = "always",
         prefix = "",
         scope = "cursor",
       }
 
-      -- vim.diagnostic.open_float(nil, opts)
-      vim.diagnostic.open_float()
+      vim.diagnostic.open_float(nil, opts)
     end
   })
 end
