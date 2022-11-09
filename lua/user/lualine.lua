@@ -10,6 +10,11 @@ if current_color_scheme == "tokyonight" then
   theme = "tokyonight"
 end
 
+local filename = {
+  "filename",
+  path = 0,
+}
+
 local diagnostics = {
   "diagnostics",
   sources = { "nvim_diagnostic" },
@@ -31,7 +36,7 @@ lualine.setup({
   sections = {
     lualine_a = { "mode" },
     lualine_b = { "branch" },
-    lualine_c = { diagnostics },
+    lualine_c = { filename, diagnostics },
     lualine_x = { "diff", "encoding", filetype },
     lualine_y = { },
     lualine_z = { "location" },
