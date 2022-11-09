@@ -41,24 +41,23 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 -- Set relative number only in focused window and when in normal mode
 -- Translated autocommands of "numbertoggle"
 -- https://github.com/jeffkreeftmeijer/vim-numbertoggle
-vim.api.nvim_create_augroup("ToggleRelativeNumbers", { clear = true })
-vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "WinEnter" }, {
-  group = "ToggleRelativeNumbers",
+local toggle_relative_number_group = vim.api.nvim_create_augroup("ToggleRelativeNumbers", { clear = true })
+vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "CmdlineLeave", "WinEnter" }, {
+  group = toggle_relative_number_group,
   pattern = "*",
   callback = function()
-    if vim.opt.number and vim.api.nvim_get_mode()["mode"] ~= "i" then
-      if vim.bo[0].filetype ~= "NvimTree" then
+     if vim.o.number and vim.api.nvim_get_mode().mode ~= "i" then
         vim.opt.relativenumber = true
-      end
-    end
+     end
   end,
 })
-vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "WinLeave" }, {
-  group = "ToggleRelativeNumbers",
+vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "CmdlineEnter", "WinLeave" }, {
+  group = toggle_relative_number_group,
   pattern = "*",
   callback = function()
-    if vim.opt.number then
-      vim.opt.relativenumber = false
-    end
-  end
+     if vim.o.number then
+        vim.opt.relativenumber = false
+        vim.cmd("redraw")
+     end
+  end,
 })
