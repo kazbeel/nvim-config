@@ -1,6 +1,6 @@
 require("user.impatient")
 require("core.options")
-require("user.keymaps")
+require("core.keymaps")
 require("user.plugins")
 require("user.autocommands")
 require("user.colorscheme")
