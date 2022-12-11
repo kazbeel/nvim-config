@@ -20,6 +20,5 @@ require("user.toggleterm")
 require("user.vim-maximizer")
 require("user.vim-bbye")
 require("user.git-conflict")
-require("user.project")
 require("user.glow")
 
