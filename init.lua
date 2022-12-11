@@ -1,2 +1,3 @@
 require("core")
-require("user")
+require("themes")
+require("plugins")

@@ -1,7 +1,7 @@
 local color_scheme = require("core.user").colorscheme
 
 -- Load color scheme
-local color_scheme_ok, _ = require("user.colorscheme." .. color_scheme)
+local color_scheme_ok, _ = require("themes." .. color_scheme)
 if not color_scheme_ok then
   vim.notify("Error loading the color scheme " .. color_scheme)
 end
