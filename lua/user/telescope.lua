@@ -13,6 +13,7 @@ telescope.setup({
       ".git",
       "node_modules",
       "dist",
+      "package-lock.json",
     },
     mappings = {
       i = {
