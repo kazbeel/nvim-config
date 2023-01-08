@@ -39,3 +39,5 @@ gitsigns.setup({
   max_file_length = 4000,
   on_attach = on_attach,
 })
+
+vim.keymap.set("n", "<leader>vh", ":Gitsigns preview_hunk_inline<CR>", { silent = true })
