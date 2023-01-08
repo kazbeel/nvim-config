@@ -50,6 +50,7 @@ keymap("n", "Y", "yg_", opts)
 keymap("n", "<Tab>", ":bnext<CR>", opts)
 keymap("n", "<S-Tab>", ":bprevious<CR>", opts)
 keymap("n", "<leader>bd", ":bdelete<CR>", opts)
+keymap("n", "<leader>bq", ":q<CR>", opts)
 
 -- No highlight of search text
 keymap("n", "<leader>h", ":nohlsearch<CR>", opts)
