@@ -12,7 +12,7 @@ end
 
 local filename = {
   "filename",
-  path = 0,
+  path = 1,
 }
 
 local diagnostics = {
