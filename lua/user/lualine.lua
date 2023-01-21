@@ -3,13 +3,6 @@ if not status_ok then
   return
 end
 
-local current_color_scheme = vim.g.colors_name
-local theme = "auto"
-
-if current_color_scheme == "tokyonight" then
-  theme = "tokyonight"
-end
-
 local filename = {
   "filename",
   path = 1,
@@ -30,15 +23,15 @@ local filetype = {
 lualine.setup({
   options = {
     globalstatus = true,
-    theme = theme,
+    theme = "auto",
     disabled_filetypes = { "NvimTree" },
   },
   sections = {
     lualine_a = { "mode" },
     lualine_b = { "branch" },
     lualine_c = { filename, diagnostics },
-    lualine_x = { "diff", "encoding", filetype },
-    lualine_y = { },
+    lualine_x = { "diff", "encoding" },
+    lualine_y = { filetype },
     lualine_z = { "location" },
   },
 })
