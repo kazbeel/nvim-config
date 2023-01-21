@@ -59,7 +59,7 @@ local function lsp_keymaps(bufnr)
 
   vim.keymap.set("n", "gD", ":lua vim.lsp.buf.declaration()<CR>", opts)
   vim.keymap.set("n", "gd", ":lua vim.lsp.buf.definition()<CR>", opts)
-  vim.keymap.set("n", "<C-k>", ":lua vim.lsp.buf.hover()<CR>", opts)
+  vim.keymap.set("n", "<C-i>", ":lua vim.lsp.buf.hover()<CR>", opts)
   vim.keymap.set("n", "<M-S-k>", ":lua vim.lsp.buf.signature_help()<CR>", opts)
   vim.keymap.set("n", "gi", ":lua vim.lsp.buf.implementation()<CR>", opts)
   vim.keymap.set("n", "<F12>", ":lua vim.lsp.buf.references()<CR>", opts)
