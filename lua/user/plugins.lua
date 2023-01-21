@@ -51,6 +51,7 @@ return packer.startup(function(use)
   use { "nvim-lua/plenary.nvim" }
 
   use { "rcarriga/nvim-notify" }
+  use { "stevearc/dressing.nvim" }
 
   use { "akinsho/toggleterm.nvim" }
 

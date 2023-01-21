@@ -129,6 +129,11 @@ _G.packer_plugins = {
     path = "/home/kazbeel/.local/share/nvim/site/pack/packer/start/dracula",
     url = "https://github.com/dracula/vim"
   },
+  ["dressing.nvim"] = {
+    loaded = true,
+    path = "/home/kazbeel/.local/share/nvim/site/pack/packer/start/dressing.nvim",
+    url = "https://github.com/stevearc/dressing.nvim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/kazbeel/.local/share/nvim/site/pack/packer/start/friendly-snippets",
