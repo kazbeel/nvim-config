@@ -10,7 +10,9 @@ bufferline.setup({
     offsets = {
       {
         filetype = "NvimTree",
-        text = "File Explorer",
+        text = function()
+          return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+        end,
         text_align = "center",
         separator = false,
       },
