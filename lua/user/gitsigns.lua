@@ -41,3 +41,4 @@ gitsigns.setup({
 })
 
 vim.keymap.set("n", "<leader>vh", ":Gitsigns preview_hunk_inline<CR>", { silent = true })
+

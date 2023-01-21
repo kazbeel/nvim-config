@@ -17,5 +17,10 @@
   "Console Log": {
     "prefix": "clog",
     "body": "console.log('${1:message}')"
+  },
+
+  "Private Readonly Property": {
+    "prefix": "pro",
+    "body": "private readonly ${1:property}"
   }
 }

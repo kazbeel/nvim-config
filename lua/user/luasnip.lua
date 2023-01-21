@@ -6,10 +6,7 @@ end
 -- Load existing vs-code style snippets from the plugin 'friendly-snippets'
 require("luasnip.loaders.from_vscode").lazy_load()
 require("luasnip.loaders.from_vscode").lazy_load({
-  paths = { "~/.config/nvim/lua/user/snippets/typescript" }
-})
-require("luasnip.loaders.from_vscode").lazy_load({
-  paths = { "~/.config/nvim/lua/user/snippets/javascript" }
+  paths = { "~/.config/nvim/lua/user/snippets" }
 })
 
 luasnip.filetype_extend("all", { "_" })

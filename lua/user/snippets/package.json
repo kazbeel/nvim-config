@@ -1,9 +1,13 @@
 {
-  "name": "my-typescript-snippets",
+  "name": "my-snippets",
   "version": "1.0.0",
-  "description": "Typescript code snippets",
+  "description": "My code snippets",
   "contributes": {
     "snippets": [
+      {
+        "language": "javascript",
+        "path": "./javascript.json"
+      },
       {
         "language": "typescript",
         "path": "./typescript.json"
