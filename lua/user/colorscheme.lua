@@ -2,11 +2,7 @@ local colorscheme = "kanagawa"
 -- local colorscheme = "tokyonight"
 -- local colorscheme = "dracula"
 
-require("user." .. colorscheme)
-
-if colorscheme == "tokyonight" then
-  vim.g.tokyonight_style = "night"
-end
+require("user.color-schemes." .. colorscheme)
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
