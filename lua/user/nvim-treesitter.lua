@@ -9,7 +9,7 @@ configs.setup({
     "dockerfile", "gitattributes", "gitignore", "graphql", "help",
     "html", "http", "javascript", "jsdoc", "json",
     "json5", "lua", "make", "markdown",
-    "markdown_inline", "regex", "scss", "sql", "toml",
+    "markdown_inline", "query", "regex", "scss", "sql", "toml",
     "tsx", "typescript", "vim", "yaml",
   },
   ignore_install = { "phpdoc" },
