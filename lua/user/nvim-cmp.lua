@@ -9,11 +9,6 @@ if not snip_status_ok then
 end
 
 cmp.setup({
-  snippet = {
-    expand = function(args)
-      luasnip.lsp_expand(args.body)
-    end,
-  },
   window = {
     completion = cmp.config.window.bordered(),
 		documentation = cmp.config.window.bordered(),
@@ -30,32 +25,9 @@ cmp.setup({
     ["<C-k>"] = cmp.mapping.select_prev_item(),
 		["<C-j>"] = cmp.mapping.select_next_item(),
     ["<C-Space>"] = cmp.mapping.complete(),
-    ["<C-e>"] = cmp.mapping.abort(),
-    -- Accept currently selected item. If none is selected, "select" first item.
-    -- Set "select" to "false" to only confirm explicitly selected items.
+    ["<Esc>"] = cmp.mapping.abort(),
     ["<CR>"] = cmp.mapping.confirm({ select = true }),
-    ["<Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_next_item()
-			elseif luasnip.expandable() then
-				luasnip.expand()
-			elseif luasnip.expand_or_jumpable() then
-				luasnip.expand_or_jump()
-			else
-				fallback()
-			end
-		end, { "i", "s" }),
-		["<S-Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_prev_item()
-			elseif luasnip.jumpable(-1) then
-				luasnip.jump(-1)
-			else
-				fallback()
-			end
-		end, { "i", "s" }),
   }),
-
   -- Use buffer source for "/"
   cmp.setup.cmdline("/", {
     mapping = cmp.mapping.preset.cmdline(),
@@ -63,7 +35,6 @@ cmp.setup({
       { name = "buffer" }
     },
   }),
-
   -- Use cmdline & path source for ":"
   cmp.setup.cmdline(":", {
     mapping = cmp.mapping.preset.cmdline(),
@@ -73,5 +44,10 @@ cmp.setup({
       { name = "cmdline" }
     }),
   }),
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
+    end,
+  },
 })
 
