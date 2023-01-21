@@ -2,7 +2,7 @@ vim.cmd('filetype plugin indent on')
 
 vim.opt.mouse = "a"
 vim.opt.syntax = "on"
-vim.opt.completeopt = { "menu", menuone", "noselect" }
+vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.updatetime = 300
 
 vim.opt.conceallevel = 0
