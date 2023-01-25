@@ -8,13 +8,13 @@ local diagnostics = null_ls.builtins.diagnostics
 local code_actions = null_ls.builtins.code_actions
 
 local sources = {
-  diagnostics.eslint_d,
+  -- diagnostics.eslint_d,
   diagnostics.yamllint,
 
   formatting.prettierd,
-  formatting.stylua,
+  -- formatting.stylua,
 
-  code_actions.eslint_d,
+  -- code_actions.eslint_d,
   code_actions.gitsigns,
 }
 
