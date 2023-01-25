@@ -64,7 +64,7 @@ local function lsp_keymaps(bufnr)
   vim.keymap.set("n", "gi", ":lua vim.lsp.buf.implementation()<CR>", opts)
   vim.keymap.set("n", "<F12>", ":lua vim.lsp.buf.references()<CR>", opts)
   vim.keymap.set("n", "gl", ":lua vim.diagnostic.open_float()<CR>", opts)
-  vim.keymap.set("n", "gfc", ":lua vim.lsp.buf.formatting({ async = true })<CR>", opts)
+  vim.keymap.set("n", "gfc", ":lua vim.lsp.buf.format({ async = true })<CR>", opts)
   vim.keymap.set("n", "gca", ":lua vim.lsp.buf.code_action()<CR>", opts)
   vim.keymap.set("n", "[d", ":lua vim.diagnostic.goto_prev({ wrap = true })<CR>", opts)
   vim.keymap.set("n", "]d", ":lua vim.diagnostic.goto_next({ wrap = true })<CR>", opts)
@@ -77,34 +77,48 @@ M.on_attach = function(client, bufnr)
   -- Configure specific LSP server
   if client.name == "tsserver" then
     -- null_ls and prettier will format the code
-    client.server_capabilities.document_formatting = false
-    client.server_capabilities.document_range_formatting = false
+    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.documentRangeFormattingProvider = false
   end
 
   if client.name == "sumneko_lua" then
     -- null_ls and prettier will format the code
-    client.server_capabilities.document_formatting = false
-    client.server_capabilities.document_range_formatting = false
+    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.documentRangeFormattingProvider = false
   end
 
   if client.name == "jsonls" then
     -- null_ls and prettier will format the code
-    client.server_capabilities.document_formatting = false
-    client.server_capabilities.document_range_formatting = false
+    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.documentRangeFormattingProvider = false
   end
 
   -- Format code on save
-  if client.server_capabilities.document_formatting then
-    vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+  if client.server_capabilities.documentFormattingProvider then
+    vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.format()")
   end
 
   M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
-  M.capabilities.textDocument.completion.completionItem.snippetSupport = true
-  M.capabilities.textDocument.completion.completionItem.resolveSupport = {
-    properties = { "documentation", "detail", "additionalTextEdits" },
+  M.capabilities.textDocument.completion.completionItem = {
+    documentationFormat = { "markdown", "plaintext" },
+    snippetSupport = true,
+    preselectSupport = true,
+    insertReplaceSupport = true,
+    labelDetailsSupport = true,
+    deprecatedSupport = true,
+    commitCharactersSupport = true,
+    tagSupport = { valueSet = { 1 } },
+    resolveSupport = {
+      properties = {
+        "documentation",
+        "detail",
+        "additionalTextEdits",
+      },
+    },
   }
-  M.capabilities.experimental = {}
-  M.capabilities.experimental.hoverActions = true
+  M.capabilities.experimental = {
+    hoverActions = true,
+  }
 
   lsp_keymaps(bufnr)
 
@@ -117,10 +131,10 @@ M.on_attach = function(client, bufnr)
   illuminate.on_attach(client)
 
   -- Show line diagnostics automatically when cursor on the time
-  -- This does not make much sense if config.virtual_text = true since the message is always displayed
+  -- This does not make sense if config.virtual_text = true since the message is always displayed
   vim.api.nvim_create_autocmd("CursorHold", {
     buffer = bufnr,
-    callback = function ()
+    callback = function()
       local opts = {
         focusable = false,
         close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
@@ -132,7 +146,7 @@ M.on_attach = function(client, bufnr)
       }
 
       vim.diagnostic.open_float(nil, opts)
-    end
+    end,
   })
 end
 
