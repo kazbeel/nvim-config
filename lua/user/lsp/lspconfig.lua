@@ -1,11 +1,3 @@
-local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
-if not status_ok then
-  return
-end
-
--- Setup LSP Installer before any LSP server
-lsp_installer.setup()
-
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
 if not lspconfig_status_ok then
   return
@@ -14,14 +6,16 @@ end
 local servers = {
   "bashls",
   "dockerls",
+  "eslint",
   "graphql",
   "html",
   "jsonls",
-  "sqls",
-  "terraformls",
+  "marksman",
+  "prismals",
+  "sqlls",
+  "sumneko_lua",
   "tsserver",
   "yamlls",
-  "sumneko_lua",
 }
 
 local opts = {

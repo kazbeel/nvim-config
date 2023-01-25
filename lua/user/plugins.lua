@@ -102,10 +102,13 @@ return packer.startup(function(use)
   use { "nvim-treesitter/nvim-treesitter-textobjects" }
 
   -- LSP
+  use { "williamboman/mason.nvim" }
+  use { "williamboman/mason-lspconfig.nvim" }
   use { "neovim/nvim-lspconfig" }
-  use { "williamboman/nvim-lsp-installer" }
   use { "jose-elias-alvarez/null-ls.nvim" }
   use { "RRethy/vim-illuminate" } -- Vim plugin
+
+  -- NEW LSP
 
   -- CMP
   use { "hrsh7th/nvim-cmp" }
