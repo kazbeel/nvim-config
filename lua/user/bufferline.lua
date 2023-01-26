@@ -27,5 +27,5 @@ bufferline.setup({
 
 vim.keymap.set("n", "<leader>bp", ":BufferLinePick<CR>", { silent = true })
 vim.keymap.set("n", "<leader>bx", ":Bdelete<CR>", { silent = true })
-vim.keymap.set("n", "<b", ":BufferLineMovePrev<CR>", { silent = true })
-vim.keymap.set("n", ">b", ":BufferLineMoveNext<CR>", { silent = true })
+vim.keymap.set("n", "<leader>b<", ":BufferLineMovePrev<CR>", { silent = true })
+vim.keymap.set("n", "<leader>b>", ":BufferLineMoveNext<CR>", { silent = true })
