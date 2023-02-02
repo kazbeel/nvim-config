@@ -8,5 +8,4 @@ indent_blankline.setup({
   use_treesitter_scope = true,
   show_trailing_blankline_indent = false,
   show_current_context = true,
-  filetype_exlude = { "help" },
 })
