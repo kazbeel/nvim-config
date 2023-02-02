@@ -4,7 +4,6 @@ if not status_ok then
 end
 
 nvim_tree.setup({
-  open_on_setup = true,
   filters = {
     dotfiles = false,
     custom = { "^.git$" },
@@ -47,3 +46,25 @@ nvim_tree.setup({
 })
 
 vim.keymap.set("n", "<C-t>", ":NvimTreeToggle<CR>", { silent = true })
+
+local function open_nvim_tree(data)
+  -- Buffer is a [No Name]
+  local no_name = data.file == "" and vim.bo[data.buf].buftype == ""
+
+  -- Buffer is a directory
+  local directory = vim.fn.isdirectory(data.file) == 1
+
+  if not no_name and not directory then
+    return
+  end
+
+  -- Change to the directory
+  if directory then
+    vim.cmd.cd(data.file)
+  end
+
+  -- Open the tree
+  require("nvim-tree.api").tree.open()
+end
+
+vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
