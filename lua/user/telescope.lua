@@ -37,18 +37,12 @@ telescope.setup({
       override_file_sorter = false,
       case_mode = "smart_case",
     },
-    project = {
-      display_type = "full",
-      sync_with_nvim_tree = true,
-    },
   },
 })
 
 telescope.load_extension("fzf")
-telescope.load_extension("project")
 telescope.load_extension("live_grep_args")
 
 vim.keymap.set("n", "<C-p>", ":Telescope find_files hidden=true<CR>", { silent = true })
 vim.keymap.set("n", "<leader>ff", ":Telescope live_grep_args disable_coordinates=true<CR>", { silent = true })
 vim.keymap.set("n", "<leader>fb", ":Telescope buffers<CR>", { silent = true })
-vim.keymap.set("n", "<leader>fp", ":Telescope project<CR>", { silent = true })
