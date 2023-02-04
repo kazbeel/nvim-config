@@ -108,8 +108,6 @@ return packer.startup(function(use)
   use { "jose-elias-alvarez/null-ls.nvim" }
   use { "RRethy/vim-illuminate" } -- Vim plugin
 
-  -- NEW LSP
-
   -- CMP
   use { "hrsh7th/nvim-cmp" }
   use { "hrsh7th/cmp-nvim-lsp" }
@@ -118,6 +116,7 @@ return packer.startup(function(use)
   use { "hrsh7th/cmp-cmdline" }
   use { "hrsh7th/cmp-nvim-lua" }
   use { "saadparwaiz1/cmp_luasnip" }
+  use { "onsails/lspkind.nvim" }
 
   -- TELESCOPE
   use { "nvim-telescope/telescope.nvim" }

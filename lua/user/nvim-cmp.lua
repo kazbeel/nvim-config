@@ -8,6 +8,11 @@ if not snip_status_ok then
 	return
 end
 
+local lspkind_status_ok, lspkind = pcall(require, "lspkind")
+if not lspkind_status_ok then
+	return
+end
+
 cmp.setup({
   window = {
     completion = cmp.config.window.bordered(),
@@ -28,6 +33,13 @@ cmp.setup({
     ["<Esc>"] = cmp.mapping.abort(),
     ["<CR>"] = cmp.mapping.confirm({ select = true }),
   }),
+  formatting = {
+    format = lspkind.cmp_format({
+      mode = 'symbol_text',
+      maxwidth = 50,
+      ellipsis_char = '...',
+    }),
+  },
   -- Use buffer source for "/"
   cmp.setup.cmdline("/", {
     mapping = cmp.mapping.preset.cmdline(),
