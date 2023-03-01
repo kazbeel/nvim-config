@@ -30,7 +30,7 @@ mason_lspconfig.setup({
     "marksman",
     "prismals",
     "sqlls",
-    "sumneko_lua",
+    "lua_ls",
     "tsserver",
     "yamlls",
   },
