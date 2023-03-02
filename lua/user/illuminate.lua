@@ -9,6 +9,7 @@ illuminate.configure({
 
 vim.g.Illuminate_ftblacklist = { 'NvimTree' }
 
+-- TOOO: Make these key bindings work
 vim.keymap.set("n", "]]", function() require("illuminate").goto_next_reference(true) end, {})
 vim.keymap.set("n", "[[", function() require("illuminate").goto_prev_reference(true) end, {})
 
