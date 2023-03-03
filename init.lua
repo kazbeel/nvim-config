@@ -29,5 +29,6 @@ require("user.telescope")
 require("user.toggleterm")
 require("user.vim-bbye")
 require("user.vim-maximizer")
+require("user.neovim-session-manager")
 
 require("user.lsp")
