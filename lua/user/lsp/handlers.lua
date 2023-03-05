@@ -69,26 +69,34 @@ local function lsp_keymaps(bufnr)
   vim.keymap.set("n", "[d", ":lua vim.diagnostic.goto_prev({ wrap = true })<CR>", opts)
   vim.keymap.set("n", "]d", ":lua vim.diagnostic.goto_next({ wrap = true })<CR>", opts)
   vim.keymap.set("n", "<F2>", ":lua vim.lsp.buf.rename()<CR>", opts)
+
+  vim.keymap.set("n", "<F10>", ":lua vim.lsp.buf.type_definition()<CR>", opts)
+  vim.cmd [[ command! Format execute "lua vim.lsp.buf.format({ async = true })" ]]
 end
 
-M.capabilities = vim.lsp.protocol.make_client_capabilities()
+local function lsp_highlight_document(client)
+  local status_ok, illuminate = pcall(require, "illuminate")
+  if status_ok then
+    illuminate.on_attach(client)
+  end
+end
 
 M.on_attach = function(client, bufnr)
   -- Configure specific LSP server
   if client.name == "tsserver" then
-    -- null_ls and prettier will format the code
+    -- null_ls will format the code
     client.server_capabilities.documentFormattingProvider = false
     client.server_capabilities.documentRangeFormattingProvider = false
   end
 
   if client.name == "lua_la" then
-    -- null_ls and prettier will format the code
+    -- null_ls will format the code
     client.server_capabilities.documentFormattingProvider = false
     client.server_capabilities.documentRangeFormattingProvider = false
   end
 
   if client.name == "jsonls" then
-    -- null_ls and prettier will format the code
+    -- null_ls will format the code
     client.server_capabilities.documentFormattingProvider = false
     client.server_capabilities.documentRangeFormattingProvider = false
   end
@@ -121,14 +129,7 @@ M.on_attach = function(client, bufnr)
   }
 
   lsp_keymaps(bufnr)
-
-  -- Highlight other uses of the current word under the cursor
-  local status_ok, illuminate = pcall(require, "illuminate")
-  if not status_ok then
-    return
-  end
-
-  illuminate.on_attach(client)
+  lsp_highlight_document(client)
 
   -- Show line diagnostics automatically when cursor on the time
   -- This does not make sense if config.virtual_text = true since the message is always displayed
@@ -149,5 +150,7 @@ M.on_attach = function(client, bufnr)
     end,
   })
 end
+
+M.capabilities = vim.lsp.protocol.make_client_capabilities()
 
 return M
