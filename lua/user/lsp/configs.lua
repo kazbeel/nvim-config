@@ -25,7 +25,6 @@ local servers = {
 	"bashls",
 	"dockerls",
 	"eslint",
-	"eslint_d",
 	"graphql",
 	"jsonls",
 	"marksman",

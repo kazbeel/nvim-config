@@ -91,8 +91,8 @@ M.on_attach = function(client, bufnr)
 		client.server_capabilities.documentRangeFormattingProvider = false
 	end
 
-	if client.name == "lua_la" then
-		-- null_ls will format the code
+	if client.name == "lua_ls" then
+		-- stylua will format the code
 		client.server_capabilities.documentFormattingProvider = false
 		client.server_capabilities.documentRangeFormattingProvider = false
 	end
