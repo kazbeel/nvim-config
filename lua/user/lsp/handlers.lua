@@ -86,7 +86,7 @@ end
 M.on_attach = function(client, bufnr)
 	-- Configure specific LSP server
 	if client.name == "tsserver" then
-		-- null_ls will format the code
+		-- prettier will format the code
 		client.server_capabilities.documentFormattingProvider = false
 		client.server_capabilities.documentRangeFormattingProvider = false
 	end
@@ -98,7 +98,7 @@ M.on_attach = function(client, bufnr)
 	end
 
 	if client.name == "jsonls" then
-		-- null_ls will format the code
+		-- prettier will format the code
 		client.server_capabilities.documentFormattingProvider = false
 		client.server_capabilities.documentRangeFormattingProvider = false
 	end
