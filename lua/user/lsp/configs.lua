@@ -35,24 +35,8 @@ local servers = {
 	"yamlls",
 }
 
-local tools = {
-	"stylua",
-	"prettierd",
-}
-
-local to_install = {}
-local n = 0
-for _, v in ipairs(servers) do
-	n = n + 1
-	to_install[n] = v
-end
-for _, v in ipairs(tools) do
-	n = n + 1
-	to_install[n] = v
-end
-
 mason_lspconfig.setup({
-	ensure_installed = to_install,
+	ensure_installed = servers,
 	automatic_installation = true,
 })
 
