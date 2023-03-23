@@ -42,8 +42,9 @@ M.setup = function()
 	}
 
 	-- Diagnostics
-	vim.lsp.handlers["textDocument/publishDiagnostics"] =
-		vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, diagnosticConfig)
+	-- vim.lsp.handlers["textDocument/publishDiagnostics"] =
+	-- 	vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, diagnosticConfig)
+	vim.diagnostic.config(diagnosticConfig)
 
 	-- Object references
 	local on_references = vim.lsp.handlers["textDocument/references"]
