@@ -60,7 +60,7 @@ end
 local function lsp_keymaps(bufnr)
 	local opts = { noremap = true, silent = true, buffer = bufnr }
 
-	vim.keymap.set("n", "gD", ":lua vim.lsp.buf.declaration()<CR>", opts)
+	-- vim.keymap.set("n", "gD", ":lua vim.lsp.buf.declaration()<CR>", opts)
 	vim.keymap.set("n", "gd", ":lua vim.lsp.buf.definition()<CR>", opts)
 	vim.keymap.set("n", "gh", ":lua vim.lsp.buf.hover()<CR>", opts)
 	vim.keymap.set("n", "gs", ":lua vim.lsp.buf.signature_help()<CR>", opts)
