@@ -1,4 +1,4 @@
-vim.cmd('filetype plugin indent on')
+vim.cmd("filetype plugin indent on")
 
 vim.opt.mouse = "a"
 vim.opt.syntax = "on"
@@ -45,8 +45,12 @@ vim.opt.undodir = "/tmp"
 vim.opt.spellfile = "~/.config/nvim/spell/en.utf-8.add"
 
 vim.opt.wildignore = vim.opt.wildignore + {
-  "*/.snv/*",
-  "*/.git/*",
-  "*/node_modules/*",
-  "*.DS_Store"
+	"*/.snv/*",
+	"*/.git/*",
+	"*/node_modules/*",
+	"*.DS_Store",
 }
+
+-- Useful for which-key
+vim.opt.timeout = true
+vim.opt.timeoutlen = 300

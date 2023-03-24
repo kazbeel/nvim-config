@@ -5,64 +5,55 @@
 --   visual_block_mode = "x",
 --   term_mode = "t",
 
---   command_mode = "c",-- Shorten keymap function
-local keymap = vim.keymap.set
-
--- Silent keymap option
-local opts = { silent = true }
-
 -- Remap <space> as leader key
-keymap("", "<Space>", "<Nop>", opts)
+set_keymap("", "<Space>", "<Nop>")
 vim.g.mapleader = " "
 
--- Exit insert mode faster
-keymap("i", "jk", "<Esc>", opts)
+set_keymap("i", "jk", "<Esc>", { desc = "Exit insert mode" })
 
-keymap("n", "<leader>w", ":w<CR>", opts)
-keymap("n", "ZA", ":qa<CR>", opts)
+set_keymap("n", "<leader>w", ":w<CR>", { desc = "Save current buffer" })
+set_keymap("n", "ZA", ":qa<CR>", { desc = "Exit vim unless there are unsaved buffers" })
 
 -- Better cursor motion when within wrapped lines
-keymap("n", "j", "gj", opts)
-keymap("n", "k", "gk", opts)
-keymap("v", "j", "gj", opts)
-keymap("v", "k", "gk", opts)
+set_keymap("n", "j", "gj")
+set_keymap("n", "k", "gk")
+set_keymap("v", "j", "gj")
+set_keymap("v", "k", "gk")
 
-keymap("n", "H", "g^", opts)
-keymap("n", "J", "5j", opts)
-keymap("n", "K", "5k", opts)
-keymap("n", "L", "g$", opts)
+set_keymap("n", "H", "g^")
+set_keymap("n", "J", "5j")
+set_keymap("n", "K", "5k")
+set_keymap("n", "L", "g$")
 
-keymap("v", "H", "g^", opts)
-keymap("v", "J", "5j", opts)
-keymap("v", "K", "5k", opts)
-keymap("v", "L", "g$", opts)
+set_keymap("v", "H", "g^")
+set_keymap("v", "J", "5j")
+set_keymap("v", "K", "5k")
+set_keymap("v", "L", "g$")
 
-keymap("n", "<leader>J", "J", opts)
+set_keymap("n", "<leader>J", "J", { desc = "Join [count] lines" })
 
--- Add empty line above/below the current line
-keymap("n", "<leader>O", "O<Esc>", opts)
-keymap("n", "<leader>o", "o<Esc>", opts)
+set_keymap("n", "<leader>O", "O<Esc>", { desc = "Add [count] empty line above" })
+set_keymap("n", "<leader>o", "o<Esc>", { desc = "Add [count] empty line below" })
 
--- Yank to the end of the line (same as "C" and "D")
-keymap("n", "Y", "yg_", opts)
+set_keymap("n", "Y", "yg_", { desc = "Yank to the end of the line" })
 
 -- Navigate buffers
-keymap("n", "<Tab>", ":bnext<CR>", opts)
-keymap("n", "<S-Tab>", ":bprevious<CR>", opts)
-keymap("n", "<leader>bd", ":bdelete<CR>", opts)
-keymap("n", "<leader>bq", ":q<CR>", opts)
+set_keymap("n", "<Tab>", ":bnext<CR>", { desc = "Go to next buffer" })
+set_keymap("n", "<S-Tab>", ":bprevious<CR>", { desc = "Go to previous buffer" })
+set_keymap("n", "<leader>bd", ":bdelete<CR>", { desc = "Unload and delete buffer" })
+set_keymap("n", "<leader>bq", ":q<CR>", { desc = "Quit the current window" })
 
 -- No highlight of search text
-keymap("n", "<leader>h", ":nohlsearch<CR>", opts)
+set_keymap("n", "<leader>h", ":nohlsearch<CR>", { desc = "Stop highlighting of hlsearch" })
 
 -- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+set_keymap("n", "<C-h>", "<C-w>h", { desc = "Focus on the window on the left" })
+set_keymap("n", "<C-j>", "<C-w>j", { desc = "Focus on the window below" })
+set_keymap("n", "<C-k>", "<C-w>k", { desc = "Focus on the window above" })
+set_keymap("n", "<C-l>", "<C-w>l", { desc = "Focus on the window on the right" })
 
 -- Resize windows
-keymap("n", "<C-Up>", ":resize -5<CR>", opts)
-keymap("n", "<C-Down>", ":resize +5<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -5<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +5<CR>", opts)
+set_keymap("n", "<C-Up>", ":resize -5<CR>", { desc = "Make window taller 5 lines up" })
+set_keymap("n", "<C-Down>", ":resize +5<CR>", { desc = "Make window taller 5 lines down" })
+set_keymap("n", "<C-Left>", ":vertical resize -5<CR>", { desc = "Make window wider 5 columns to the right" })
+set_keymap("n", "<C-Right>", ":vertical resize +5<CR>", { desc = "Make window wider 5 columns to the left" })

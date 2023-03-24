@@ -60,20 +60,55 @@ end
 local function lsp_keymaps(bufnr)
 	local opts = { noremap = true, silent = true, buffer = bufnr }
 
-	-- vim.keymap.set("n", "gD", ":lua vim.lsp.buf.declaration()<CR>", opts)
-	vim.keymap.set("n", "gd", ":lua vim.lsp.buf.definition()<CR>", opts)
-	vim.keymap.set("n", "gh", ":lua vim.lsp.buf.hover()<CR>", opts)
-	vim.keymap.set("n", "gs", ":lua vim.lsp.buf.signature_help()<CR>", opts)
-	vim.keymap.set("n", "gi", ":lua vim.lsp.buf.implementation()<CR>", opts)
-	vim.keymap.set("n", "<F12>", ":lua vim.lsp.buf.references()<CR>", opts)
-	vim.keymap.set("n", "gl", ":lua vim.diagnostic.open_float()<CR>", opts)
-	vim.keymap.set("n", "gfc", ":lua vim.lsp.buf.format({ async = true })<CR>", opts)
-	vim.keymap.set("n", "gca", ":lua vim.lsp.buf.code_action()<CR>", opts)
-	vim.keymap.set("n", "[d", ":lua vim.diagnostic.goto_prev({ wrap = true })<CR>", opts)
-	vim.keymap.set("n", "]d", ":lua vim.diagnostic.goto_next({ wrap = true })<CR>", opts)
-	vim.keymap.set("n", "<F2>", ":lua vim.lsp.buf.rename()<CR>", opts)
+	set_keymap("n", "gD", ":lua vim.lsp.buf.declaration()<CR>", { buffer = bufnr, desc = "Go to declaration (LSP)" })
+	set_keymap("n", "gd", ":lua vim.lsp.buf.definition()<CR>", { buffer = bufnr, desc = "Go to definition (LSP)" })
+	set_keymap("n", "gh", ":lua vim.lsp.buf.hover()<CR>", { buffer = bufnr, desc = "Hover information (LSP)" })
+	set_keymap("n", "gs", ":lua vim.lsp.buf.signature_help()<CR>", { buffer = bufnr, desc = "Signature help (LSP)" })
+	set_keymap(
+		"n",
+		"gi",
+		":lua vim.lsp.buf.implementation()<CR>",
+		{ buffer = bufnr, desc = "Go to implementation (LSP)" }
+	)
+	set_keymap(
+		"n",
+		"<F12>",
+		":lua vim.lsp.buf.references()<CR>",
+		{ buffer = bufnr, desc = "Go to references or list them if multiple (LSP)" }
+	)
+	set_keymap(
+		"n",
+		"gl",
+		":lua vim.diagnostic.open_float()<CR>",
+		{ buffer = bufnr, desc = "Show line diagnostic in floating window (LSP)" }
+	)
+	set_keymap(
+		"n",
+		"gfc",
+		":lua vim.lsp.buf.format({ async = true })<CR>",
+		{ buffer = bufnr, desc = "Format document (LSP)" }
+	)
+	set_keymap("n", "gca", ":lua vim.lsp.buf.code_action()<CR>", { buffer = bufnr, desc = "Code actions (LSP)" })
+	set_keymap(
+		"n",
+		"[d",
+		":lua vim.diagnostic.goto_prev({ wrap = true })<CR>",
+		{ buffer = bufnr, desc = "Go to previous diagnostic (LSP)" }
+	)
+	set_keymap(
+		"n",
+		"]d",
+		":lua vim.diagnostic.goto_next({ wrap = true })<CR>",
+		{ buffer = bufnr, desc = "Go to declaration (LSP)" }
+	)
+	set_keymap("n", "<F2>", ":lua vim.lsp.buf.rename()<CR>", { buffer = bufnr, desc = "Go to next diagnostic (LSP)" })
 
-	vim.keymap.set("n", "<F10>", ":lua vim.lsp.buf.type_definition()<CR>", opts)
+	set_keymap(
+		"n",
+		"<F10>",
+		":lua vim.lsp.buf.type_definition()<CR>",
+		{ buffer = bufnr, desc = "Go to type definition (LSP)" }
+	)
 	vim.cmd([[ command! Format execute "lua vim.lsp.buf.format({ async = true })" ]])
 end
 

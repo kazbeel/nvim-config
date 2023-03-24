@@ -1,4 +1,5 @@
 require("user.impatient")
+require("user.utils")
 
 require("user.options")
 require("user.keymaps")
@@ -32,5 +33,6 @@ require("user.vim-maximizer")
 require("user.neovim-session-manager")
 require("user.neotest")
 require("user.bqf")
+require("user.which-key")
 
 require("user.lsp")

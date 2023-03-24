@@ -1,1 +1,1 @@
-vim.keymap.set("n", "<leader>bx", ":Bdelete<CR>", { silent = true })
+set_keymap("n", "<leader>bx", ":Bdelete<CR>", {desc = "Delete buffer without closing the window"})
