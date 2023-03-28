@@ -139,6 +139,13 @@ M.on_attach = function(client, bufnr)
 		client.server_capabilities.documentRangeFormattingProvider = false
 	end
 
+  if client.name == "yamlls" then
+		-- By default this LSP has formatting provider set to false
+    -- See https://github.com/redhat-developer/yaml-language-server/issues/486
+		client.server_capabilities.documentFormattingProvider = true
+		client.server_capabilities.documentRangeFormattingProvider = true
+  end
+
 	-- Format code on save
 	if client.server_capabilities.documentFormattingProvider then
 		vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.format()")
