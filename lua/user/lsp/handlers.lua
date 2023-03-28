@@ -58,9 +58,8 @@ M.setup = function()
 end
 
 local function lsp_keymaps(bufnr)
-	local opts = { noremap = true, silent = true, buffer = bufnr }
-
-	set_keymap("n", "gD", ":lua vim.lsp.buf.declaration()<CR>", { buffer = bufnr, desc = "Go to declaration (LSP)" })
+	-- "gD" is defined in treesitter textobjects
+	-- set_keymap("n", "gD", ":lua vim.lsp.buf.declaration()<CR>", { buffer = bufnr, desc = "Go to declaration (LSP)" })
 	set_keymap("n", "gd", ":lua vim.lsp.buf.definition()<CR>", { buffer = bufnr, desc = "Go to definition (LSP)" })
 	set_keymap("n", "gh", ":lua vim.lsp.buf.hover()<CR>", { buffer = bufnr, desc = "Hover information (LSP)" })
 	set_keymap("n", "gs", ":lua vim.lsp.buf.signature_help()<CR>", { buffer = bufnr, desc = "Signature help (LSP)" })
