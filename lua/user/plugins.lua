@@ -79,6 +79,8 @@ return packer.startup(function(use)
 	use({ "kylechui/nvim-surround" })
 
 	use({ "phaazon/hop.nvim", branch = "v2" })
+	use({ "ggandor/leap.nvim", requires = "tpope/vim-repeat" })
+	use({ "ggandor/flit.nvim", requires = { "ggandor/leap.nvim", "tpope/vim-repeat" } })
 
 	use({ "numToStr/Comment.nvim" })
 	use({ "JoosepAlviste/nvim-ts-context-commentstring" })
