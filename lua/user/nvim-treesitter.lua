@@ -14,7 +14,7 @@ configs.setup({
 		"gitattributes",
 		"gitignore",
 		"graphql",
-		"help",
+		"vimdoc",
 		"html",
 		"http",
 		"javascript",
