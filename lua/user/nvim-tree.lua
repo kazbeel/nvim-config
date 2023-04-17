@@ -17,11 +17,11 @@ nvim_tree.setup({
 		show_on_dirs = true,
 	},
 	view = {
-		hide_root_folder = true,
 		width = 40,
 	},
 	renderer = {
 		full_name = true,
+		root_folder_label = false,
 		icons = {
 			glyphs = {
 				git = {
