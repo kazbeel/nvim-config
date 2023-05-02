@@ -14,6 +14,7 @@ telescope.setup({
 			"node_modules",
 			"dist",
 			"package-lock.json",
+      "CHANGELOG.md"
 		},
 		mappings = {
 			i = {
