@@ -34,6 +34,7 @@ configs.setup({
 		"typescript",
 		"vim",
 		"yaml",
+		"prisma",
 	},
 	ignore_install = { "phpdoc" },
 	highlight = {
