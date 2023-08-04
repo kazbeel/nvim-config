@@ -21,7 +21,7 @@ local sources = {
 
 local on_attach = function(client, bufnr)
 	-- Format code on file save
-	if client.server_capabilities.documentFormattingProvider then
+	if client.supports_method("textDocument/formatting") then
 		local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
@@ -29,7 +29,7 @@ local on_attach = function(client, bufnr)
 			group = augroup,
 			buffer = bufnr,
 			callback = function()
-				vim.lsp.buf.format({ bufnr = bufnr, async = false })
+				vim.lsp.buf.format({ async = false })
 			end,
 		})
 	end
