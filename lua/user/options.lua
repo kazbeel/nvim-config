@@ -3,7 +3,7 @@ vim.cmd("filetype plugin indent on")
 vim.opt.mouse = "a"
 vim.opt.syntax = "on"
 vim.opt.completeopt = "menu,menuone,noselect"
-vim.opt.updatetime = 300
+vim.opt.updatetime = 250
 
 vim.opt.conceallevel = 0
 vim.opt.encoding = "utf-8"
@@ -13,7 +13,8 @@ vim.opt.swapfile = false
 vim.opt.writebackup = false
 
 vim.opt.termguicolors = true
-vim.opt.laststatus = 3 -- Always and only the last window
+vim.opt.laststatus = 3 -- Global status line
+vim.opt.showmode = false
 vim.opt.ruler = false
 
 vim.opt.number = true
@@ -35,9 +36,12 @@ vim.opt.smartindent = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
+vim.opt.softtabstop = 2
 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+
+vim.opt.fillchars = { eob = " " }
 
 vim.opt.undofile = true
 vim.opt.undodir = "/tmp"
@@ -53,4 +57,4 @@ vim.opt.wildignore = vim.opt.wildignore + {
 
 -- Useful for which-key
 vim.opt.timeout = true
-vim.opt.timeoutlen = 300
+vim.opt.timeoutlen = 400
