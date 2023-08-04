@@ -14,11 +14,13 @@ telescope.setup({
 			"node_modules",
 			"dist",
 			"package-lock.json",
-      "CHANGELOG.md"
+			"CHANGELOG.md",
 		},
+		path_display = { "truncate" },
+		set_env = { ["COLORTERM"] = "truecolor" },
 		mappings = {
 			i = {
-				["<esc>"] = actions.close,
+				["<ESC>"] = actions.close,
 				["<C-j>"] = actions.move_selection_next,
 				["<C-k>"] = actions.move_selection_previous,
 				["<Down>"] = actions.cycle_history_next,
@@ -29,7 +31,15 @@ telescope.setup({
 			n = {
 				["<C-x>"] = actions.select_horizontal,
 				["<C-v>"] = actions.select_vertical,
+				["q"] = actions.close,
+				["<ESC>"] = actions.close,
 			},
+		},
+		layout_config = {
+			prompt_position = "top",
+			width = 0.90,
+			height = 0.90,
+			preview_cutoff = 120,
 		},
 	},
 	extensions = {
@@ -45,17 +55,21 @@ telescope.setup({
 telescope.load_extension("fzf")
 telescope.load_extension("live_grep_args")
 
-set_keymap("n", "<C-p>", ":Telescope find_files hidden=true<CR>", { desc = "Open specific file" })
+set_keymap("n", "<C-p>", "<cmd> Telescope find_files hidden=true <CR>", { desc = "Find files" })
 set_keymap(
 	"n",
 	"<leader>ff",
-	":Telescope live_grep_args disable_coordinates=true<CR>",
+	"<cmd> Telescope live_grep_args disable_coordinates=true <CR>",
 	{ desc = "Find text in files" }
 )
-set_keymap("n", "<leader>fb", ":Telescope buffers<CR>", { desc = "List open buffers" })
+set_keymap("n", "<leader>fb", "<cmd> Telescope buffers <CR>", { desc = "Find buffers" })
+set_keymap("n", "<leader>fz", "<cmd> Telescope current_buffer_fuzzy_find <CR>", { desc = "Find in current buffer" })
 set_keymap(
 	"n",
 	"<leader>fs",
-	":Telescope lsp_document_symbols<CR>",
+	"<cmd> Telescope lsp_document_symbols <CR>",
 	{ desc = "List document symbols in current buffer (LSP)" }
 )
+
+set_keymap("n", "<leader>fcm", "<cmd> Telescope git_commits <CR>", { desc = "Find Git commits" })
+set_keymap("n", "<leader>fr", "<cmd> Telescope registers <CR>", { desc = "Find registers" })

@@ -15,10 +15,10 @@ set_keymap("n", "<leader>w", ":w<CR>", { desc = "Save current buffer" })
 set_keymap("n", "ZA", ":qa<CR>", { desc = "Exit vim unless there are unsaved buffers" })
 
 -- Better cursor motion when within wrapped lines
-set_keymap("n", "j", "gj")
-set_keymap("n", "k", "gk")
-set_keymap("v", "j", "gj")
-set_keymap("v", "k", "gk")
+set_keymap("n", "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { desc = "Mode down", expr = true })
+set_keymap("n", "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { desc = "Mode up", expr = true })
+set_keymap("v", "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { desc = "Mode down", expr = true })
+set_keymap("v", "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { desc = "Mode up", expr = true })
 
 set_keymap("n", "H", "g^")
 set_keymap("n", "J", "5j")
@@ -43,8 +43,15 @@ set_keymap("n", "<S-Tab>", ":bprevious<CR>", { desc = "Go to previous buffer" })
 set_keymap("n", "<leader>bd", ":bdelete<CR>", { desc = "Unload and delete buffer" })
 set_keymap("n", "<leader>bq", ":q<CR>", { desc = "Quit the current window" })
 
--- No highlight of search text
-set_keymap("n", "<leader>h", ":nohlsearch<CR>", { desc = "Stop highlighting of hlsearch" })
+set_keymap("n", "<ESC>", ":nohlsearch<CR>", { desc = "Clear highlighs" })
+
+set_keymap("n", "<C-c>", "<cmd> %y+ <CR>", { desc = "Copy the whole file" })
+
+-- Keep cursor in the center
+set_keymap("n", "<C-d>", "<C-d>zz")
+set_keymap("n", "<C-u>", "<C-u>zz")
+set_keymap("n", "n", "nzzzv")
+set_keymap("n", "N", "Nzzzv")
 
 -- Better window navigation
 set_keymap("n", "<C-h>", "<C-w>h", { desc = "Focus on the window on the left" })

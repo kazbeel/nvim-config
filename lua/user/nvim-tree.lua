@@ -8,6 +8,9 @@ nvim_tree.setup({
 		dotfiles = false,
 		custom = { "^.git$" },
 	},
+	disable_netrw = true,
+	hijack_netrw = true,
+	hijack_cursor = true,
 	git = {
 		enable = true,
 		ignore = false,
@@ -18,6 +21,7 @@ nvim_tree.setup({
 	},
 	view = {
 		width = 40,
+		preserve_window_proportions = true,
 	},
 	renderer = {
 		full_name = true,
@@ -37,7 +41,6 @@ nvim_tree.setup({
 		},
 	},
 	sync_root_with_cwd = true,
-
 	respect_buf_cwd = true,
 	update_focused_file = {
 		enable = false,
@@ -45,7 +48,7 @@ nvim_tree.setup({
 	},
 })
 
-set_keymap("n", "<C-t>", ":NvimTreeToggle<CR>", { desc = "Toggle files explorer" })
+set_keymap("n", "<C-n>", "<cmd> NvimTreeToggle <CR>", { desc = "Toggle file explorer" })
 
 local function open_nvim_tree(data)
 	-- Buffer is a [No Name]

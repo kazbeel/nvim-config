@@ -108,7 +108,7 @@ local function lsp_keymaps(bufnr)
 		":lua vim.lsp.buf.type_definition()<CR>",
 		{ buffer = bufnr, desc = "Go to type definition (LSP)" }
 	)
-	vim.cmd([[ command! Format execute "lua vim.lsp.buf.format({ async = true })" ]])
+	-- vim.cmd([[ command! Format execute "lua vim.lsp.buf.format({ async = true })" ]])
 end
 
 local function lsp_highlight_document(client)
@@ -119,35 +119,20 @@ local function lsp_highlight_document(client)
 end
 
 M.on_attach = function(client, bufnr)
-	-- Configure specific LSP server
-	if client.name == "tsserver" then
-		-- prettier will format the code
-		client.server_capabilities.documentFormattingProvider = false
-		client.server_capabilities.documentRangeFormattingProvider = false
-	end
+	-- By default, formatting capabilities are disabled in favor of formatters
+	client.server_capabilities.documentFormattingProvider = false
+	client.server_capabilities.documentRangeFormattingProvider = false
 
-	if client.name == "lua_ls" then
-		-- stylua will format the code
-		client.server_capabilities.documentFormattingProvider = false
-		client.server_capabilities.documentRangeFormattingProvider = false
-	end
-
-	if client.name == "jsonls" then
-		-- prettier will format the code
-		client.server_capabilities.documentFormattingProvider = false
-		client.server_capabilities.documentRangeFormattingProvider = false
-	end
-
-  if client.name == "yamlls" then
+	if client.name == "yamlls" then
 		-- By default this LSP has formatting provider set to false
-    -- See https://github.com/redhat-developer/yaml-language-server/issues/486
+		-- See https://github.com/redhat-developer/yaml-language-server/issues/486
 		client.server_capabilities.documentFormattingProvider = true
 		client.server_capabilities.documentRangeFormattingProvider = true
-  end
+	end
 
 	-- Format code on save
 	if client.server_capabilities.documentFormattingProvider then
-		vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.format()")
+    vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.format()")
 	end
 
 	lsp_keymaps(bufnr)
@@ -171,29 +156,29 @@ M.on_attach = function(client, bufnr)
 			vim.diagnostic.open_float(nil, opts)
 		end,
 	})
-end
 
-M.capabilities = vim.lsp.protocol.make_client_capabilities()
-M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
-M.capabilities.textDocument.completion.completionItem = {
-	documentationFormat = { "markdown", "plaintext" },
-	snippetSupport = true,
-	preselectSupport = true,
-	insertReplaceSupport = true,
-	labelDetailsSupport = true,
-	deprecatedSupport = true,
-	commitCharactersSupport = true,
-	tagSupport = { valueSet = { 1 } },
-	resolveSupport = {
-		properties = {
-			"documentation",
-			"detail",
-			"additionalTextEdits",
+	M.capabilities = vim.lsp.protocol.make_client_capabilities()
+	M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
+	M.capabilities.textDocument.completion.completionItem = {
+		documentationFormat = { "markdown", "plaintext" },
+		snippetSupport = true,
+		preselectSupport = true,
+		insertReplaceSupport = true,
+		labelDetailsSupport = true,
+		deprecatedSupport = true,
+		commitCharactersSupport = true,
+		tagSupport = { valueSet = { 1 } },
+		resolveSupport = {
+			properties = {
+				"documentation",
+				"detail",
+				"additionalTextEdits",
+			},
 		},
-	},
-}
-M.capabilities.experimental = {
-	hoverActions = true,
-}
+	}
+	M.capabilities.experimental = {
+		hoverActions = true,
+	}
+end
 
 return M

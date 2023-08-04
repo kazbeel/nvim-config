@@ -129,7 +129,8 @@ return packer.startup(function(use)
 	use({ "L3MON4D3/LuaSnip" })
 	use({ "rafamadriz/friendly-snippets" })
 
-	use({ "moll/vim-bbye" })
+	-- use({ "moll/vim-bbye" })
+	use({ "famiu/bufdelete.nvim" })
 
 	use({ "christoomey/vim-tmux-navigator" })
 
