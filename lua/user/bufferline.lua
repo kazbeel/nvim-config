@@ -22,6 +22,7 @@ bufferline.setup({
 		show_close_icon = false,
 		diagnostics = "nvim_lsp",
 		separator_style = "thick",
+		hover = { enabled = false },
 	},
 })
 
