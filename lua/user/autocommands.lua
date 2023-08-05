@@ -26,11 +26,9 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 	end,
 })
 
--- Fixes Autocomment
-vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
-	callback = function()
-		vim.cmd("set formatoptions-=cro")
-	end,
+-- Disable autocomment new lines
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+	command = "setlocal formatoptions-=cro",
 })
 
 -- Go to the last location when opening a buffer
