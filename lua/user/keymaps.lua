@@ -64,3 +64,6 @@ set_keymap("n", "<C-Up>", ":resize -5<CR>", { desc = "Make window taller 5 lines
 set_keymap("n", "<C-Down>", ":resize +5<CR>", { desc = "Make window taller 5 lines down" })
 set_keymap("n", "<C-Left>", ":vertical resize -5<CR>", { desc = "Make window wider 5 columns to the right" })
 set_keymap("n", "<C-Right>", ":vertical resize +5<CR>", { desc = "Make window wider 5 columns to the left" })
+
+-- Search and Replace
+set_keymap("n", "c.", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], { desc = "Search and replace word under cursor" })
