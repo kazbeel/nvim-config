@@ -81,11 +81,4 @@ configs.setup({
 		enable = true,
 		enable_autocmd = false,
 	},
-	-- nvim-ts-rainbow settings
-	rainbow = {
-		enable = true,
-		disable = { "html" },
-		extended_mode = false,
-		max_file_lines = 5000,
-	},
 })

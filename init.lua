@@ -36,5 +36,6 @@ require("user.neovim-session-manager")
 require("user.neotest")
 require("user.bqf")
 require("user.which-key")
+require("user.rainbow-delimiters")
 
 require("user.lsp")

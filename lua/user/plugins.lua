@@ -140,7 +140,7 @@ return packer.startup(function(use)
 
 	use({ "ellisonleao/glow.nvim" })
 
-	use({ "p00f/nvim-ts-rainbow" })
+	use({ "HiPhish/rainbow-delimiters.nvim" })
 
 	use({ "Shatur/neovim-session-manager", requires = "nvim-lua/plenary.nvim" })
 
