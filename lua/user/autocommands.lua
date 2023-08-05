@@ -1,46 +1,69 @@
+local autocmd = vim.api.nvim_create_autocmd
+
+local function augroup(name, fnc)
+	fnc(vim.api.nvim_create_augroup(name, { clear = true }))
+end
+
 -- Use 'q' to quit from common plugins
-vim.api.nvim_create_autocmd({ "FileType" }, {
-	pattern = { "qf", "help", "man", "lspinfo", "spectre_panel", "lir", "fugitive" },
-	callback = function()
-		vim.cmd([[
+augroup("QuitWithQ", function(group)
+	autocmd({ "FileType" }, {
+		group = group,
+		pattern = { "qf", "help", "man", "lspinfo", "spectre_panel", "lir", "fugitive" },
+		callback = function()
+			vim.cmd([[
       nnoremap <silent> <buffer> q :close<CR>
       set nobuflisted
     ]])
-	end,
-})
+		end,
+	})
+end)
 
 -- Set wrap and spell in markdown and gitcommit
-vim.api.nvim_create_autocmd({ "FileType" }, {
-	pattern = { "gitcommit", "markdown" },
-	callback = function()
-		vim.opt_local.wrap = true
-		vim.opt_local.spell = true
-	end,
-})
+augroup("ActivateWrapAndSpell", function(group)
+	autocmd({ "FileType" }, {
+		group = group,
+		pattern = { "gitcommit", "markdown" },
+		callback = function()
+			vim.opt_local.wrap = true
+			vim.opt_local.spell = true
+		end,
+	})
+end)
 
 -- Set maximum text length in gitcommit
-vim.api.nvim_create_autocmd({ "FileType" }, {
-	pattern = { "gitcommit" },
-	callback = function()
-		vim.opt_local.textwidth = 72
-	end,
-})
+augroup("GitCommitMaxLength", function(group)
+	autocmd({ "FileType" }, {
+		group = group,
+		pattern = { "gitcommit" },
+		callback = function()
+			vim.opt_local.textwidth = 72
+		end,
+	})
+end)
 
 -- Disable autocomment new lines
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
-	command = "setlocal formatoptions-=cro",
-})
+augroup("DisableAutocomment", function(group)
+	autocmd({ "BufEnter" }, {
+		group = group,
+		pattern = "*",
+		command = "setlocal formatoptions-=cro",
+	})
+end)
 
 -- Go to the last location when opening a buffer
-vim.api.nvim_create_autocmd({ "BufReadPost" }, {
-	command = [[if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif]],
-})
+augroup("GoLastCursorLocaltion", function(group)
+	autocmd({ "BufReadPost" }, {
+		group = group,
+		pattern = "*",
+		command = [[if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif]],
+	})
+end)
 
 -- Set relative number only in focused window and when in normal mode
 -- Translated autocommands of "numbertoggle"
 -- https://github.com/jeffkreeftmeijer/vim-numbertoggle
 local toggle_relative_number_group = vim.api.nvim_create_augroup("ToggleRelativeNumbers", { clear = true })
-vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "CmdlineLeave", "WinEnter" }, {
+autocmd({ "BufEnter", "FocusGained", "InsertLeave", "CmdlineLeave", "WinEnter" }, {
 	group = toggle_relative_number_group,
 	pattern = "*",
 	callback = function()
@@ -49,7 +72,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "Cmdline
 		end
 	end,
 })
-vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "CmdlineEnter", "WinLeave" }, {
+autocmd({ "BufLeave", "FocusLost", "InsertEnter", "CmdlineEnter", "WinLeave" }, {
 	group = toggle_relative_number_group,
 	pattern = "*",
 	callback = function()
@@ -60,11 +83,22 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "CmdlineEn
 	end,
 })
 
-local disable_node_modules_eslint_group = vim.api.nvim_create_augroup("DisableNodeModulesEslint", { clear = true })
-vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-	group = disable_node_modules_eslint_group,
-	pattern = { "**/node_modules/**", "node_modules", "/node_modules/**" },
-	callback = function()
-		vim.diagnostic.disable()
-	end,
-})
+-- Disable eslint when in a node_modules source file
+augroup("DisableNodeModulesEslint", function(group)
+	autocmd({ "BufNewFile", "BufRead" }, {
+		group = group,
+		pattern = { "**/node_modules/**", "node_modules", "/node_modules/**" },
+		callback = function()
+			vim.diagnostic.disable()
+		end,
+	})
+end)
+
+-- Resize windows
+augroup("ResizeWindows", function(group)
+	autocmd("VimResized", {
+		group = group,
+		pattern = "*",
+		command = "tabdo wincmd =",
+	})
+end)
