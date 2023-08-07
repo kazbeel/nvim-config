@@ -9,7 +9,7 @@ M.setup = function()
 	local diagnosticSigns = {
 		{ name = "DiagnosticSignError", text = "" },
 		{ name = "DiagnosticSignWarn", text = "" },
-		{ name = "DiagnosticSignHint", text = "" },
+		{ name = "DiagnosticSignHint", text = "󰌵" },
 		{ name = "DiagnosticSignInfo", text = "" },
 	}
 
@@ -132,7 +132,7 @@ M.on_attach = function(client, bufnr)
 
 	-- Format code on save
 	if client.server_capabilities.documentFormattingProvider then
-    vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.format()")
+		vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.format()")
 	end
 
 	lsp_keymaps(bufnr)
