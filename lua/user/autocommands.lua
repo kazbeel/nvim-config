@@ -8,7 +8,7 @@ end
 augroup("QuitWithQ", function(group)
 	autocmd({ "FileType" }, {
 		group = group,
-		pattern = { "qf", "help", "man", "lspinfo", "spectre_panel", "lir", "fugitive" },
+		pattern = { "qf", "help", "man", "lspinfo", "lir", "fugitive" },
 		callback = function()
 			vim.cmd([[
       nnoremap <silent> <buffer> q :close<CR>
