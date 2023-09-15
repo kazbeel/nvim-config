@@ -1,38 +1,53 @@
 local status_ok, lualine = pcall(require, "lualine")
 if not status_ok then
-  return
+	return
 end
 
+local filetype = {
+		"filetype",
+		icon_only = true,
+		separator = "",
+		padding = { left = 1, right = 0 },
+}
+
 local filename = {
-  "filename",
-  path = 1,
+		"filename",
+		path = 1,
 }
 
 local diagnostics = {
-  "diagnostics",
-  sources = { "nvim_diagnostic" },
-  sections = { "error", "warn", "info", "hint" },
-  symbols = { error = " ", warn = " ", info = ' ', hint = ' ' },
+	"diagnostics",
+	symbols = { error = " ", warn = " ", info = " ", hint = " " },
 }
 
-local filetype = {
-  "filetype",
-  icons_enabled = false,
+local diff = {
+	"diff",
+	symbols = { added = " ", modified = " ", removed = " " },
+}
+
+local progress = {
+	"progress",
+  separator = "", 
+	padding = { left = 1, right = 0 },
+}
+
+local location = {
+	"location",
+	padding = { left = 0, right = 1 },
 }
 
 lualine.setup({
-  options = {
-    globalstatus = true,
-    theme = "auto",
-    disabled_filetypes = { "NvimTree" },
-  },
-  sections = {
-    lualine_a = { "mode" },
-    lualine_b = { "branch" },
-    lualine_c = { filename, diagnostics },
-    lualine_x = { "diff", "encoding" },
-    lualine_y = { filetype },
-    lualine_z = { "location" },
-  },
+	options = {
+		globalstatus = true,
+		theme = "auto",
+	},
+	sections = {
+		lualine_a = { "mode" },
+		lualine_b = { "branch" },
+		lualine_c = { filetype, filename, diagnostics },
+		lualine_x = { diff },
+		lualine_y = { "encoding" },
+		lualine_z = { progress, location },
+	},
+  extensions = { "fugitive" }
 })
-
