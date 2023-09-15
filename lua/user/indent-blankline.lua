@@ -6,13 +6,14 @@ end
 indent_blankline.setup({
 	filetype_exclude = {
 		"help",
+		"NvimTree",
 		"terminal",
-		"lazy",
+		"toggleterm",
 		"lspinfo",
 		"TelescopePrompt",
 		"TelescopeResults",
 		"mason",
-		"",
+		"notify",
 	},
 	buftype_exclude = { "terminal" },
 	use_treesitter = true,
