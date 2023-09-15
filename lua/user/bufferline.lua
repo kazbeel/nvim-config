@@ -7,6 +7,7 @@ bufferline.setup({
 	options = {
 		close_command = "Bdelete! %d",
 		middle_mouse_command = "Bdelete! %d",
+		always_show_bufferline = false,
 		offsets = {
 			{
 				filetype = "NvimTree",
