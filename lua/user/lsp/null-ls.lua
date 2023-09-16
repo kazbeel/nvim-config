@@ -15,6 +15,7 @@ local sources = {
 	formatting.prettierd,
 	formatting.stylua,
 	formatting.markdownlint,
+	formatting.shfmt,
 
 	code_actions.gitsigns,
 }
