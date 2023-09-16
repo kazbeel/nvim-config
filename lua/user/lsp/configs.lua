@@ -24,7 +24,6 @@ end
 local servers = {
 	"bashls",
 	"dockerls",
-  "docker-compose-language-service",
 	"eslint",
 	"graphql",
 	"jsonls",
