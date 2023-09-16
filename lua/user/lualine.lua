@@ -4,15 +4,15 @@ if not status_ok then
 end
 
 local filetype = {
-		"filetype",
-		icon_only = true,
-		separator = "",
-		padding = { left = 1, right = 0 },
+	"filetype",
+	icon_only = true,
+	separator = "",
+	padding = { left = 1, right = 0 },
 }
 
 local filename = {
-		"filename",
-		path = 1,
+	"filename",
+	path = 1,
 }
 
 local diagnostics = {
@@ -27,7 +27,7 @@ local diff = {
 
 local progress = {
 	"progress",
-  separator = "", 
+	separator = "",
 	padding = { left = 1, right = 0 },
 }
 
@@ -40,6 +40,7 @@ lualine.setup({
 	options = {
 		globalstatus = true,
 		theme = "auto",
+		disabled_filetypes = { "NvimTree" },
 	},
 	sections = {
 		lualine_a = { "mode" },
@@ -49,5 +50,5 @@ lualine.setup({
 		lualine_y = { "encoding" },
 		lualine_z = { progress, location },
 	},
-  extensions = { "fugitive" }
+	extensions = { "fugitive" },
 })
