@@ -10,7 +10,7 @@ notify.setup({
 		return math.floor(vim.o.lines * 0.5)
 	end,
 	max_width = function()
-		return math.floor(vim.o.columsn * 0.5)
+		return math.floor(vim.o.columns * 0.5)
 	end,
 })
 
