@@ -32,7 +32,6 @@ telescope.setup({
 				["<C-x>"] = actions.select_horizontal,
 				["<C-v>"] = actions.select_vertical,
 				["q"] = actions.close,
-				["<ESC>"] = actions.close,
 			},
 		},
 		layout_config = {
