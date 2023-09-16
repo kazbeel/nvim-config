@@ -11,6 +11,7 @@ local sources = {
 	diagnostics.yamllint.with({
 		args = { "-c", os.getenv("HOME") .. "/.config/yamllint/config", "--format", "parsable", "-" },
 	}),
+  diagnostics.hadolint, -- Dockerfile
 
 	formatting.prettierd,
 	formatting.stylua,
