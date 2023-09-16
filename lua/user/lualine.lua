@@ -40,7 +40,7 @@ lualine.setup({
 	options = {
 		globalstatus = true,
 		theme = "auto",
-		disabled_filetypes = { "NvimTree" },
+		disabled_filetypes = { "packer", "NvimTree" },
 	},
 	sections = {
 		lualine_a = { "mode" },
