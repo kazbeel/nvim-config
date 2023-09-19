@@ -23,6 +23,7 @@ bufferline.setup({
 		diagnostics = "nvim_lsp",
 		separator_style = "thick",
 		hover = { enabled = false },
+		sync_root_with_cwd = true,
 	},
 })
 
