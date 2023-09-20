@@ -5,9 +5,17 @@ end
 
 local mode = {
 	"mode",
-	fmt = function(str)
-		return " " .. str
-	end,
+	icon = "",
+}
+
+local branch = {
+	"branch",
+	icon = "",
+}
+
+local diff = {
+	"diff",
+	symbols = { added = " ", modified = " ", removed = " " },
 }
 
 local filetype = {
@@ -27,11 +35,6 @@ local diagnostics = {
 	symbols = { error = " ", warn = " ", info = " ", hint = " " },
 }
 
-local diff = {
-	"diff",
-	symbols = { added = " ", modified = " ", removed = " " },
-}
-
 local progress = {
 	"progress",
 	separator = "",
@@ -44,15 +47,15 @@ local location = {
 }
 
 local function lsp_status()
-  if rawget(vim, "lsp") then
-    for _, client in ipairs(vim.lsp.get_active_clients()) do
-      if client.attached_buffers[vim.api.nvim_get_current_buf()] and client.name ~= "null-ls" then
-        return " " .. client.name
-      end
-    end
-  end
+	if rawget(vim, "lsp") then
+		for _, client in ipairs(vim.lsp.get_active_clients()) do
+			if client.attached_buffers[vim.api.nvim_get_current_buf()] and client.name ~= "null-ls" then
+				return " " .. client.name
+			end
+		end
+	end
 
-  return ""
+	return ""
 end
 
 lualine.setup({
@@ -65,10 +68,10 @@ lualine.setup({
 	},
 	sections = {
 		lualine_a = { mode },
-		lualine_b = { "branch", diff },
+		lualine_b = { branch, diff },
 		lualine_c = { filetype, filename },
 		lualine_x = { diagnostics },
-		lualine_y = { lsp_status  },
+		lualine_y = { lsp_status },
 		lualine_z = { progress, location },
 	},
 	extensions = { "fugitive" },
