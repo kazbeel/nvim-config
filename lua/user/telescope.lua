@@ -53,7 +53,6 @@ telescope.setup({
 
 telescope.load_extension("fzf")
 telescope.load_extension("live_grep_args")
-telescope.load_extension("projects")
 
 set_keymap("n", "<C-p>", "<cmd> Telescope find_files hidden=true <CR>", { desc = "Find files" })
 set_keymap(
