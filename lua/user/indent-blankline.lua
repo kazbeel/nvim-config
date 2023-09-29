@@ -4,20 +4,18 @@ if not status_ok then
 end
 
 indent_blankline.setup({
-	filetype_exclude = {
-		"help",
-		"NvimTree",
-		"terminal",
-		"toggleterm",
-		"lspinfo",
-		"TelescopePrompt",
-		"TelescopeResults",
-		"mason",
-		"notify",
+	exclude = {
+		filetype = {
+			"NvimTree",
+			"terminal",
+			"toggleterm",
+			"mason",
+			"notify",
+		},
 	},
-	buftype_exclude = { "terminal" },
-	use_treesitter = true,
-	use_treesitter_scope = true,
-	show_trailing_blankline_indent = false,
-	show_current_context = true,
+	scope = {
+		enabled = true,
+		show_start = false,
+		show_end = false,
+	},
 })
