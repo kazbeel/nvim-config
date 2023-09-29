@@ -6,7 +6,6 @@ end
 require("rainbow-delimiters.setup")({
 	strategy = {
 		[""] = rainbow_delimiters.strategy["global"],
-		commonlisp = rainbow_delimiters.strategy["local"],
 	},
 	query = {
 		[""] = "rainbow-delimiters",
