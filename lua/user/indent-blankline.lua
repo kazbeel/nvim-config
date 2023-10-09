@@ -5,7 +5,7 @@ end
 
 indent_blankline.setup({
 	exclude = {
-		filetype = {
+		filetypes = {
 			"NvimTree",
 			"terminal",
 			"toggleterm",
