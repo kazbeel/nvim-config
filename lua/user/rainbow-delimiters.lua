@@ -3,7 +3,7 @@ if not status_ok then
 	return
 end
 
-require("rainbow-delimiters.setup")({
+require("rainbow-delimiters.setup").setup({
 	strategy = {
 		[""] = rainbow_delimiters.strategy["global"],
 	},
