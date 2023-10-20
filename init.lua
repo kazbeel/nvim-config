@@ -37,5 +37,6 @@ require("user.neotest")
 require("user.bqf")
 require("user.which-key")
 require("user.rainbow-delimiters")
+require("user.project")
 
 require("user.lsp")
