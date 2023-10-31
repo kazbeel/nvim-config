@@ -73,3 +73,5 @@ set_keymap(
 
 set_keymap("n", "<leader>fcm", "<cmd> Telescope git_commits <CR>", { desc = "Find Git commits" })
 set_keymap("n", "<leader>fr", "<cmd> Telescope registers <CR>", { desc = "Find registers" })
+set_keymap("n", "<leader>fd", "<cmd> Telescope diagnostics <CR>", { desc = "Find diagnostics" })
+set_keymap("n", "<leader>fp", "<cmd> Telescope projects <CR>", { desc = "Find projects" })
