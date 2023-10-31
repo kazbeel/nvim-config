@@ -56,12 +56,6 @@ telescope.load_extension("live_grep_args")
 telescope.load_extension("projects")
 
 set_keymap("n", "<C-p>", "<cmd> Telescope find_files hidden=true <CR>", { desc = "Find files" })
-set_keymap(
-	"n",
-	"<leader>ff",
-	"<cmd> Telescope live_grep_args disable_coordinates=true <CR>",
-	{ desc = "Find text in files" }
-)
 set_keymap("n", "<leader>fb", "<cmd> Telescope buffers <CR>", { desc = "Find buffers" })
 set_keymap("n", "<leader>fz", "<cmd> Telescope current_buffer_fuzzy_find <CR>", { desc = "Find in current buffer" })
 set_keymap(
@@ -75,4 +69,14 @@ set_keymap("n", "<leader>fcm", "<cmd> Telescope git_commits <CR>", { desc = "Fin
 set_keymap("n", "<leader>fcm", "<cmd> Telescope git_bcommits <CR>", { desc = "Find buffer's Git commits" })
 set_keymap("n", "<leader>fr", "<cmd> Telescope registers <CR>", { desc = "Find registers" })
 set_keymap("n", "<leader>fd", "<cmd> Telescope diagnostics <CR>", { desc = "Find diagnostics" })
+
+-- Requires extension "live_grep_args" to be loaded
+set_keymap(
+	"n",
+	"<leader>ff",
+	"<cmd> Telescope live_grep_args disable_coordinates=true <CR>",
+	{ desc = "Find text in files" }
+)
+
+-- Requires extension "projects" to be loaded
 set_keymap("n", "<leader>fp", "<cmd> Telescope projects <CR>", { desc = "Find projects" })
