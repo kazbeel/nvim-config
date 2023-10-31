@@ -65,8 +65,8 @@ return packer.startup(function(use)
 
 	-- THEMES
 	use({ "rebelot/kanagawa.nvim" })
-	use({ "folke/tokyonight.nvim" })
-	use({ "dracula/vim", as = "dracula" })
+	-- use({ "folke/tokyonight.nvim" })
+	-- use({ "dracula/vim", as = "dracula" })
 
 	-- GIT
 	use({ "tpope/vim-fugitive", tag = "*" })
@@ -78,7 +78,6 @@ return packer.startup(function(use)
 
 	use({ "kylechui/nvim-surround" })
 
-	-- use({ "phaazon/hop.nvim", branch = "v2" })
 	use({ "ggandor/leap.nvim", requires = "tpope/vim-repeat" })
 	use({ "ggandor/flit.nvim", requires = { "ggandor/leap.nvim", "tpope/vim-repeat" } })
 
@@ -130,7 +129,6 @@ return packer.startup(function(use)
 	use({ "L3MON4D3/LuaSnip" })
 	use({ "rafamadriz/friendly-snippets" })
 
-	-- use({ "moll/vim-bbye" })
 	use({ "famiu/bufdelete.nvim" })
 
 	use({ "christoomey/vim-tmux-navigator" })

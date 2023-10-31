@@ -1,10 +1,8 @@
 local colorscheme = "kanagawa"
--- local colorscheme = "tokyonight"
--- local colorscheme = "dracula"
 
 require("user.color-schemes." .. colorscheme)
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
-  return
+	return
 end
