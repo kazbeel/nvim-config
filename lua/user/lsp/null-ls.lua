@@ -11,14 +11,22 @@ local sources = {
 	diagnostics.yamllint.with({
 		args = { "-c", os.getenv("HOME") .. "/.config/yamllint/config", "--format", "parsable", "-" },
 	}),
-  diagnostics.hadolint, -- Dockerfile
+	diagnostics.hadolint, -- Dockerfile
+	diagnostics.shellcheck.with({
+		filetypes = { "bash", "csh", "ksh", "sh", "zsh" },
+	}),
 
 	formatting.prettierd,
 	formatting.stylua,
 	formatting.markdownlint,
-	formatting.shfmt,
+	formatting.shfmt.with({
+		filetypes = { "bash", "csh", "ksh", "sh", "zsh" },
+	}),
 
 	code_actions.gitsigns,
+	code_actions.shellcheck.with({
+		filetypes = { "bash", "csh", "ksh", "sh", "zsh" },
+	}),
 }
 
 local on_attach = function(client, bufnr)
