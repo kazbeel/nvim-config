@@ -122,7 +122,6 @@ return packer.startup(function(use)
 	-- TELESCOPE
 	use({ "nvim-telescope/telescope.nvim" })
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-	use({ "nvim-telescope/telescope-live-grep-args.nvim" })
 	use({ "ahmedkhalf/project.nvim" })
 
 	-- SNIPPETS
