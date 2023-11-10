@@ -15,6 +15,7 @@ telescope.setup({
 			"dist",
 			"package-lock.json",
 			"CHANGELOG.md",
+			"__snapshots__",
 		},
 		path_display = { "truncate" },
 		set_env = { ["COLORTERM"] = "truecolor" },
