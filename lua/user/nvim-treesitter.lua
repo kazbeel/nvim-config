@@ -77,9 +77,4 @@ configs.setup({
 			},
 		},
 	},
-	-- nvim-tx-context-commentstring settings
-	context_commentstring = {
-		enable = true,
-		enable_autocmd = false,
-	},
 })
