@@ -10,6 +10,7 @@ bufferline.setup({
 		offsets = {
 			{
 				filetype = "NvimTree",
+        -- Show root directory name
 				text = function()
 					return "󰉋 " .. vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
 				end,
@@ -21,10 +22,20 @@ bufferline.setup({
 		show_buffer_default_icon = false,
 		show_close_icon = false,
 		diagnostics = "nvim_lsp",
-		separator_style = "thick",
-		hover = { enabled = false },
+		separator_style = "slant",
+    hover = {
+      enabled = false
+    },
 		sync_root_with_cwd = true,
+		indicator = {
+      style = "underline"
+    },
 	},
+  highlights = {
+    buffer_selected = {
+      bold = false,
+    },
+  },
 })
 
 set_keymap("n", "<leader>bp", ":BufferLinePick<CR>", { desc = "Pick buffer to go in buffer line" })
