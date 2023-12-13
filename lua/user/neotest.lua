@@ -14,10 +14,12 @@ neotest.setup({
 	},
 })
 
-set_keymap("n", "<leader>tr", function()
-	neotest.summary.open()
+set_keymap("n", "<leader>tc", function()
 	neotest.run.run()
-end, { desc = "Run tests" })
+end, { desc = "Run test case" })
+set_keymap("n", "<leader>tf", function()
+	neotest.run.run(vim.fn.expand("%"))
+end, { desc = "Run test file" })
 set_keymap("n", "<leader>tt", function()
 	neotest.summary.toggle()
-end, { desc = "Toggle test results summary" })
+end, { desc = "Toggle tests summary" })
