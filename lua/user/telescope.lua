@@ -56,6 +56,7 @@ telescope.load_extension("fzf")
 telescope.load_extension("projects")
 
 set_keymap("n", "<C-p>", "<cmd> Telescope find_files hidden=true <CR>", { desc = "Find files" })
+set_keymap("n", "<leader>fo", "<cmd> Telescope oldfiles <CR>", { desc = "List previously open files" })
 set_keymap("n", "<leader>fb", "<cmd> Telescope buffers <CR>", { desc = "Find buffers" })
 set_keymap("n", "<leader>fz", "<cmd> Telescope current_buffer_fuzzy_find <CR>", { desc = "Find in current buffer" })
 set_keymap(
