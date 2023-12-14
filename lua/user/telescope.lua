@@ -42,6 +42,14 @@ telescope.setup({
 			preview_cutoff = 120,
 		},
 	},
+	pickers = {
+		live_grep = {
+			additional_args = function(opts)
+				return { "--hidden" }
+			end,
+			disable_coordinates = true,
+		},
+	},
 	extensions = {
 		fzf = {
 			fuzzy = true,
@@ -71,12 +79,7 @@ set_keymap("n", "<leader>fgc", "<cmd> Telescope git_bcommits <CR>", { desc = "Fi
 set_keymap("n", "<leader>fr", "<cmd> Telescope registers <CR>", { desc = "Find registers" })
 set_keymap("n", "<leader>fd", "<cmd> Telescope diagnostics <CR>", { desc = "Find diagnostics" })
 
-set_keymap(
-	"n",
-	"<leader>ff",
-	"<cmd> Telescope live_grep disable_coordinates=true <CR>",
-	{ desc = "Find text in files" }
-)
+set_keymap("n", "<leader>ff", "<cmd> Telescope live_grep <CR>", { desc = "Find text in files" })
 
 -- Requires extension "projects" to be loaded
 set_keymap("n", "<leader>fp", "<cmd> Telescope projects <CR>", { desc = "Find projects" })
