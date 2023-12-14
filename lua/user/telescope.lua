@@ -66,8 +66,8 @@ set_keymap(
 	{ desc = "List document symbols in current buffer (LSP)" }
 )
 
-set_keymap("n", "<leader>fcm", "<cmd> Telescope git_commits <CR>", { desc = "Find Git commits" })
-set_keymap("n", "<leader>fcm", "<cmd> Telescope git_bcommits <CR>", { desc = "Find buffer's Git commits" })
+set_keymap("n", "<leader>fgC", "<cmd> Telescope git_commits <CR>", { desc = "Find Git commits" })
+set_keymap("n", "<leader>fgc", "<cmd> Telescope git_bcommits <CR>", { desc = "Find buffer's Git commits" })
 set_keymap("n", "<leader>fr", "<cmd> Telescope registers <CR>", { desc = "Find registers" })
 set_keymap("n", "<leader>fd", "<cmd> Telescope diagnostics <CR>", { desc = "Find diagnostics" })
 
