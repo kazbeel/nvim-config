@@ -36,6 +36,7 @@ set_keymap("n", "<leader>O", "O<Esc>", { desc = "Add [count] empty line above" }
 set_keymap("n", "<leader>o", "o<Esc>", { desc = "Add [count] empty line below" })
 
 set_keymap("n", "Y", "yg_", { desc = "Yank to the end of the line" })
+set_keymap("n", "U", "<C-r>", { desc = "Redo" })
 
 -- Navigate buffers
 set_keymap("n", "<Tab>", ":bnext<CR>", { desc = "Go to next buffer" })
