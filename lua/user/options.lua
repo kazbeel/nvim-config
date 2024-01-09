@@ -59,6 +59,9 @@ vim.opt.wildignore = vim.opt.wildignore + {
 vim.opt.timeout = true
 vim.opt.timeoutlen = 400
 
+-- Use ripgrep
+vim.o.grepprg = 'rg --vimgrep'
+
 -- Disable health checks
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
