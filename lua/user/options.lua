@@ -58,3 +58,7 @@ vim.opt.wildignore = vim.opt.wildignore + {
 -- Useful for which-key
 vim.opt.timeout = true
 vim.opt.timeoutlen = 400
+
+-- Disable health checks
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_perl_provider = 0
