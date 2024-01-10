@@ -4,6 +4,7 @@ if not status_ok then
 end
 
 local actions = require("telescope.actions")
+local lga_actions = require("telescope-live-grep-args.actions")
 
 telescope.setup({
 	defaults = {
@@ -57,11 +58,20 @@ telescope.setup({
 			override_file_sorter = false,
 			case_mode = "smart_case",
 		},
+		live_grep_args = {
+			auto_quoting = true,
+			mappings = {
+				i = {
+					["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+				},
+			},
+		},
 	},
 })
 
 telescope.load_extension("fzf")
 telescope.load_extension("projects")
+telescope.load_extension("live_grep_args")
 
 set_keymap("n", "<C-p>", "<cmd> Telescope find_files hidden=true <CR>", { desc = "Find files" })
 set_keymap("n", "<leader>fo", "<cmd> Telescope oldfiles <CR>", { desc = "List previously open files" })
@@ -79,7 +89,7 @@ set_keymap("n", "<leader>fgc", "<cmd> Telescope git_bcommits <CR>", { desc = "Fi
 set_keymap("n", "<leader>fr", "<cmd> Telescope registers <CR>", { desc = "Find registers" })
 set_keymap("n", "<leader>fd", "<cmd> Telescope diagnostics <CR>", { desc = "Find diagnostics" })
 
-set_keymap("n", "<leader>ff", "<cmd> Telescope live_grep <CR>", { desc = "Find text in files" })
+set_keymap("n", "<leader>ff", "<cmd> Telescope live_grep_args <CR>", { desc = "Find text in files" })
 
 -- Requires extension "projects" to be loaded
 set_keymap("n", "<leader>fp", "<cmd> Telescope projects <CR>", { desc = "Find projects" })
